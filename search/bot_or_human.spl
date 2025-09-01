@@ -1,1 +1,5 @@
+//SQL command compares all user agents and if any suspicious values in the user agent is detected as a bot user.
 
+source="httpsLogs.log" sourcetype="access_combined" 
+| eval client_type=if(match(useragent,"(?i)bot|spider|crawl|curl|wget"),"Bot","Human")
+| stats count BY client_type
