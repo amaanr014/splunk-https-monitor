@@ -1,4 +1,4 @@
-//This search shows the most common url paths on the website
+//This search shows the most visited url paths on the website
 
 source="httpsLogs.log" sourcetype="access_combined" 
 | stats count BY uri_path
