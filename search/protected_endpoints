@@ -1,1 +1,5 @@
+//Setup a filter that searches for all urls that contains a important endpoint and returns back the IP address, the url path and the number of times this ip accessed the endpoint
 
+source="httpsLogs.log" sourcetype="access_combined" 
+| where uri_path LIKE "/admin%" OR uri_path LIKE "%.env%" OR uri_path LIKE "%passwd%"
+| stats count BY clientip, uri_path
