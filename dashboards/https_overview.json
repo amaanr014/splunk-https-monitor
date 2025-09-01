@@ -141,14 +141,14 @@
         "ds_JMesMRBF": {
             "name": "Search_1",
             "options": {
-                "query": "source=\"httpsLogs.log\" host=\"DESKTOP-RMNEEAP\" index=\"main\" sourcetype=\"access_combined\"| stats count BY clientip\r\n| sort - count\r\n| head 10"
+                "query": "source=\"httpsLogs.log\" index=\"main\" sourcetype=\"access_combined\"| stats count BY clientip\r\n| sort - count\r\n| head 10"
             },
             "type": "ds.search"
         },
         "ds_KEAEMQzb": {
             "name": "Table search",
             "options": {
-                "query": "source=\"httpsLogs.log\" host=\"DESKTOP-RMNEEAP\" index=\"main\" sourcetype=\"access_combined\" | iplocation clientip\r\n| geostats count BY Country",
+                "query": "source=\"httpsLogs.log\" index=\"main\" sourcetype=\"access_combined\" | iplocation clientip\r\n| geostats count BY Country",
                 "queryParameters": {
                     "earliest": "0",
                     "sampleRatio": 1
@@ -159,7 +159,7 @@
         "ds_LDr9ibmt": {
             "name": "Table search",
             "options": {
-                "query": "source=\"httpsLogs.log\" host=\"DESKTOP-RMNEEAP\" index=\"main\" sourcetype=\"access_combined\" | eval client_type=if(match(useragent,\"(?i)bot|spider|crawl|curl|wget\"),\"Bot\",\"Human\")\r\n| stats count BY client_type",
+                "query": "source=\"httpsLogs.log\" index=\"main\" sourcetype=\"access_combined\" | eval client_type=if(match(useragent,\"(?i)bot|spider|crawl|curl|wget\"),\"Bot\",\"Human\")\r\n| stats count BY client_type",
                 "queryParameters": {
                     "earliest": "0",
                     "sampleRatio": 1
@@ -170,7 +170,7 @@
         "ds_Sd5W9tV3": {
             "name": "Table search",
             "options": {
-                "query": "source=\"httpsLogs.log\" host=\"DESKTOP-RMNEEAP\" index=\"main\" sourcetype=\"access_combined\" | where uri_path LIKE \"/admin%\" OR uri_path LIKE \"%.env%\" OR uri_path LIKE \"%passwd%\"\r\n| stats count BY clientip, uri_path",
+                "query": "source=\"httpsLogs.log\" index=\"main\" sourcetype=\"access_combined\" | where uri_path LIKE \"/admin%\" OR uri_path LIKE \"%.env%\" OR uri_path LIKE \"%passwd%\"\r\n| stats count BY clientip, uri_path",
                 "queryParameters": {
                     "earliest": "0",
                     "sampleRatio": 1
@@ -181,7 +181,7 @@
         "ds_aYisq8iE": {
             "name": "Table search",
             "options": {
-                "query": "source=\"httpsLogs.log\" host=\"DESKTOP-RMNEEAP\" index=\"main\" sourcetype=\"access_combined\" | stats count BY uri_path\r\n| sort - count\r\n| head 10",
+                "query": "source=\"httpsLogs.log\" index=\"main\" sourcetype=\"access_combined\" | stats count BY uri_path\r\n| sort - count\r\n| head 10",
                 "queryParameters": {
                     "earliest": "0",
                     "sampleRatio": 1
@@ -192,7 +192,7 @@
         "ds_btuHyC3h": {
             "name": "Table search",
             "options": {
-                "query": "source=\"httpsLogs.log\" host=\"DESKTOP-RMNEEAP\" index=\"main\" sourcetype=\"access_combined\" | stats count BY clientip\r\n| sort - count\r\n| head 10",
+                "query": "source=\"httpsLogs.log\" index=\"main\" sourcetype=\"access_combined\" | stats count BY clientip\r\n| sort - count\r\n| head 10",
                 "queryParameters": {
                     "earliest": "0",
                     "sampleRatio": 1
@@ -203,7 +203,7 @@
         "ds_pUOLJiDf": {
             "name": "Table search",
             "options": {
-                "query": "source=\"httpsLogs.log\" host=\"DESKTOP-RMNEEAP\" index=\"main\" sourcetype=\"access_combined\" | stats count BY clientip\r\n| sort - count\r\n| head 10",
+                "query": "source=\"httpsLogs.log\" index=\"main\" sourcetype=\"access_combined\" | stats count BY clientip\r\n| sort - count\r\n| head 10",
                 "queryParameters": {
                     "earliest": "0",
                     "sampleRatio": 1
@@ -214,7 +214,7 @@
         "ds_pcmOdVgC": {
             "name": "Table search",
             "options": {
-                "query": "source=\"httpsLogs.log\" host=\"DESKTOP-RMNEEAP\" index=\"main\" sourcetype=\"access_combined\" | search NOT method=GET NOT method=POST\r\n| stats count BY method, uri_path, clientip",
+                "query": "source=\"httpsLogs.log\" index=\"main\" sourcetype=\"access_combined\" | search NOT method=GET NOT method=POST\r\n| stats count BY method, uri_path, clientip",
                 "queryParameters": {
                     "earliest": "0",
                     "sampleRatio": 1
@@ -233,7 +233,7 @@
         "ds_rl2c9vqA": {
             "name": "Table search",
             "options": {
-                "query": "source=\"httpsLogs.log\" host=\"DESKTOP-RMNEEAP\" index=\"main\" sourcetype=\"access_combined\" status>=500\r\n| bin _time span=15m\r\n| stats count AS count BY _time status",
+                "query": "source=\"httpsLogs.log\" index=\"main\" sourcetype=\"access_combined\" status>=500\r\n| bin _time span=15m\r\n| stats count AS count BY _time status",
                 "queryParameters": {
                     "earliest": "0",
                     "sampleRatio": 1
@@ -244,7 +244,7 @@
         "ds_tYXYllkW": {
             "name": "Table search",
             "options": {
-                "query": "source=\"httpsLogs.log\" host=\"DESKTOP-RMNEEAP\" index=\"main\" sourcetype=\"access_combined\" status>=400\r\n| stats count BY status, uri_path\r\n| sort - count",
+                "query": "source=\"httpsLogs.log\" index=\"main\" sourcetype=\"access_combined\" status>=400\r\n| stats count BY status, uri_path\r\n| sort - count",
                 "queryParameters": {
                     "earliest": "0",
                     "sampleRatio": 1
