@@ -1,1 +1,6 @@
+//Searches for the most common ip address on the website and the number of times on the website
 
+source="httpsLogs.log" sourcetype="access_combined" 
+| stats count BY clientip
+| sort - count
+| head 10
