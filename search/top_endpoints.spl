@@ -1,1 +1,6 @@
+//This search returns back the most frequent ip addresses that visits the website.
 
+source="httpsLogs.log" sourcetype="access_combined" 
+| stats count BY uri_path
+| sort - count
+| head 10
